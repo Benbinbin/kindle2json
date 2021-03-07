@@ -1,5 +1,5 @@
 # Introduction
-Kindle2JSON is a module of [BookMate](https://github.com/Benbinbin/BookMate). This module aims to convert the Kindle Highlight (HTML files export from Kindle mobile App) to to JSON format files.
+[Kindle2JSON](https://benbinbin.github.io/kindle2json/) is a module of [BookMate](https://github.com/Benbinbin/BookMate). This module aims to convert the Kindle Highlight (HTML files export from Kindle mobile App) to to JSON format files.
 
 you can checkout the core parsing [code](./parse.js), which refer to the [kindle-email-to-json](https://github.com/sawyerh/kindle-email-to-json/blob/main/Converter.js) created by [@sawyerh](https://github.com/sawyerh).
 
