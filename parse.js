@@ -11,7 +11,7 @@ function getMetaData(dom) {
     .split(/[;、；]/)
     .map((s) => s.trim());
   const translators = authors.filter(author => {
-    const regexp = /译/;
+    const regexp = /译$/;
     return regexp.test(author)
   });
   if (translators.length) {
@@ -50,7 +50,12 @@ function getNotes(dom) {
   headings.forEach((heading, index) => {
     // chapter
     let chapter = null
-    if (chapters.length) {
+    // 匹配 noteHeading 中是否含有章节信息
+    const text = heading.textContent;
+    const regexp = /-\s\S+\s>/;
+    if (regexp.test(text)) {
+      chapter = text.match(/-\s(\S+)\s>/)[1].trim();
+    } else if (chapters.length) {
       let tempNode = heading;
       while (tempNode.nodeName !== 'HR') {
         if (tempNode.classList.contains('sectionHeading')) {
@@ -61,6 +66,7 @@ function getNotes(dom) {
       }
       // console.log(chapter);
     }
+
 
     // color
     let color = null;
