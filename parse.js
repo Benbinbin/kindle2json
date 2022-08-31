@@ -79,9 +79,17 @@ function getNotes(dom) {
     // location
     let location = 0;
     const result = heading.textContent.trim().match(/\s(\d*)$/i);
+    // 如果 kindle 软件的语言选择中文，则导出的文件可能存在「第 x 页」的模式
+    const resultCN = heading.textContent.trim().match(/第\s(\d*)\s页$/i);
+
     if (result) {
-      location = result[0].trim();
+      // console.log(result);
+      location = result[1].trim()
+    } else if (resultCN) {
+      // console.log(resultCN);
+      location = resultCN[1].trim()
     }
+
     // console.log(location);
 
     // content
